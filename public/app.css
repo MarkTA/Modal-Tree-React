@@ -1,0 +1,524 @@
+
+body {
+background-color: #627D9A;
+  text-align: center;
+  color:#4D4D4D;
+  border-color: #4D4D4D;
+  overflow-x: scroll;
+  font-family: 'Century Gothic';
+  margin-bottom: 500px;
+}
+button{
+  display: inline-block;
+  margin:0;
+  height: 30px;
+  font-size: 18px;
+  border-radius: 5px;
+}
+canvas{
+  border: solid red 2px;
+  position:absolute;
+  top:0;
+  left:0;
+  z-index:-1;
+  width:1200px;
+  height:600px;
+}
+div{
+  display:inline-block;
+  marigin: 0;
+  padding: 0;
+  vertical-align: top;
+}
+h1, h2{
+  text-align: center;
+  margin: 10px;
+  font-size: 25px;
+}
+h3{
+  position: relative;
+  top:-20px;
+  font-size: 16px;
+}
+input{
+  width: 150px;
+  height: 40px;
+  text-align: center;
+  font-size: 20px;
+}
+li{
+  width: 100%;
+  padding: 0.25em
+}
+li:hover {
+  background-color: lightblue;
+  width:100%;
+}
+option{
+  height: 25px;
+  text-align: center;
+  font-size: 20px;
+}
+table{
+  width: 500px;
+  font-size: 20px;
+  margin:6% auto;
+}
+td{
+  background-color: white;
+  border:solid black 1px;
+  margin:0;
+  padding:10px;
+}
+th{
+  background-color: white;
+  border:solid black 1px;
+  margin:0;
+  padding:10px;
+}
+.badge-collapse{
+  border-radius: 3px;
+  position:relative;
+  top:10px;
+  box-shadow: 0px 2px 8px #92A19B inset, 0px 0px 16px #EEE;
+  padding:5px 8px 9px 8px;
+}
+.big{
+  width:600px;
+  min-height:550px;
+  padding:10px;
+  box-shadow: 0px 2px 8px #92A19B inset, 0px 0px 50px gray !important;
+  text-align: right;
+  position: absolute;
+  overflow: visible;
+  top:50px;
+  left:27.5%;
+}
+.big h3, .big h2{
+  text-align: center;
+  margin-top:10%;
+  margin-right: 20px;
+}
+.big li{
+font-size: 20px;
+}
+.big .list{
+  max-width: 70%;
+}
+.big .time{
+  font-size: 20px;
+}
+.block{
+  background-color: #FFFAE6;
+  border-radius: 5px;
+  box-shadow: 0px 1px 8px #92A19B inset, 0px 0px 16px gray;
+  border: solid 1px;
+  cursor: pointer;
+  margin: 10px 5px;
+  text-align: center;
+}
+.block:hover{
+  box-shadow: 0px 2px 8px #92A19B inset, 0px 0px 16px #EEE;
+}
+.block:hover .wrap .block{
+  box-shadow: 0px 2px 8px #92A19B inset, 0px 0px 16px #EEE;
+}
+.block .removeIcon{
+  visibility: hidden;
+}
+.block h2{
+  margin:0px;
+}
+.blockMain{
+}
+.center{
+  display:block;
+  margin: 0 auto;
+}
+.editPencil{
+  font-size: 10px;
+  padding:2px;
+  border-radius: 2px;
+  float: right;
+  position: relative;
+  top:-10px;
+  color:white;
+}
+.editPencil:hover{
+  background:gray;
+  color:#EEE;
+}
+.example{
+  color:gray;
+}
+.hideThis{
+  visibility: hidden;
+}
+.hideThat{
+  display:block;
+  width:0;
+  height: 0;
+  overflow: hidden;
+}
+.inputMedium{
+  width:100px;
+}
+.left{
+  float:left;
+  clear: both;
+}
+.list{
+  text-align: left;
+  float: right;
+}
+.materialText{
+  color:blue;
+}
+.okay{
+  float: right;
+  margin:7px;
+}
+.okayWage{
+  width: 50px;
+  height: 50px;
+  position: absolute;
+  left:15%;
+  top:130px;
+}
+.removeIcon{
+  float:right;
+  cursor: pointer;
+}
+.right{
+  float: right;
+  clear: both;
+}
+.showThis{
+  visibility: visible;
+}
+.spanNumber{
+  font-size:18px;
+  margin-bottom:10px;
+  background-color: #955151;
+  padding: 4px 7px;
+  border-radius: 100%;
+}
+.tableWrap{
+  max-height:490px;
+  overflow-x: hidden;
+  overflow-y: scroll;
+}
+.tier-1{
+  padding:21px;
+  max-height: 84px;
+}
+.tier-1 h2{
+  font-size: 42px;
+  margin-top: -4.2px;
+}
+.tier-2{
+  padding:18px;
+  max-height: 72px;
+}
+.tier-2 h2{
+  font-size: 36px;
+  margin-top: -3.6px;
+}
+.tier-3{
+  padding:15px;
+  max-height: 60px;
+}
+.tier-3 h2{
+  font-size: 30px;
+  margin-top: -3px;
+}
+.tier-4{
+  padding:12px;
+  max-height: 48px;
+}
+.tier-4 h2{
+  font-size:24px;
+  margin-top: -2.4px;
+}
+.tier-5{
+  padding:9px;
+  max-height: 36px;
+}
+.tier-5 h2{
+  font-size:18px;
+  margin-top: -1.8px;
+}
+.tier-6{
+  padding:6px;
+  max-height: 24px;
+}
+.tier-6 h2{
+  font-size:12px;
+  margin-top: -1.2px;
+}
+.time-employee{
+  font-weight: bold;
+  color:red;
+}
+.THdisplay{
+  display: block;
+  width:250px;
+}
+.transparent {
+  background:#7f7f7f;
+  background:rgba(0,0,0,0.5);
+  width:100%;
+  height:100%;
+  position:fixed;
+  top:0;
+  right:0;
+  z-index: 10;
+}
+.toggle{
+  display: block;
+  width: 100%;
+  height: 100%;
+  padding: 18px 10px;
+  cursor: pointer;
+}
+.toggle:hover{
+background-color: #EEE;
+}
+.toggleButton{
+  padding: 0;
+}
+.wrap{
+  display:block;
+  width:100%;
+  border-color:red;
+}
+.wrapflt {
+  display:inline-block;
+  border-color:yellow;
+}
+.wrapfltMain {
+  display:inline-block;
+  float: none;
+}
+.zoom{
+  zoom:332%;
+}
+#BranchClose{
+  color:gray;
+  cursor:pointer;
+  float: right;
+}
+#BranchClose:hover{
+  color:#EEE;
+  background:gray;
+}
+#colorSelect{
+ margin: 5% auto;
+ background-color: #fff;
+ border:1px solid #000;
+ border-radius: 10px;
+ padding:20px;
+ font-size:18px;
+ text-align:right;
+}
+#listEditor{
+  font-size: 14px;
+  display: block;
+  width:378px;
+  border:solid black 1px;
+  background-color: white;
+  padding-right: 20px;
+  position: absolute;
+  text-align: left;
+  top:260px;
+  left:122px;
+  min-height:0;
+  max-height: 196px;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  z-index: 9999;
+}
+#MaterialTable{
+  background-color: white;
+  width: auto;
+  font-size: 20px;
+  margin:0;
+  text-align: left;
+}
+#MaterialHold{
+   margin: 5% auto;
+   background-color: #F0F8FF;
+   border:1px solid #000;
+   border-radius: 10px;
+   padding:20px;
+   font-size:18px;
+   text-align:right;
+}
+#ModalClose{
+  position: relative;
+  top:-40px;
+  color:gray;
+  cursor:pointer;
+  float: right;
+}
+#ModalClose:hover{
+  color:#EEE;
+  background:gray;
+}
+#modalEdit{
+  position:relative;
+  top:-10px;
+}
+#ModalEditClose{
+  position: fixed;
+  top:80px;
+  right:28%;
+  color:gray;
+  cursor:pointer;
+}
+#ModalEditClose:hover{
+  color:#EEE;
+  background:gray;
+}
+#newMaterial{
+  display: block;
+  margin:0;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+#modalColor{
+visibility:hidden;
+width:100%;
+height: 100%;
+}
+#modalEdit{
+  position:fixed;
+  left:30%;
+  top:30px;
+}
+#modalWages{
+  display: block;
+  height:100%;
+  visibility:hidden;
+  position:fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index:2;
+}
+#modalMaterial{
+  display: block;
+  height:100%;
+  visibility:hidden;
+  position:fixed;
+  left: 0;
+  right: 0;
+  margin: 0 auto;
+  z-index:2;
+}
+#timeNumber{
+  width:50px;
+}
+#overlay {
+ visibility: hidden;
+ position: absolute;
+ left: 0px;
+ top: 0px;
+ width:100%;
+ height:100%;
+ text-align:center;
+ padding:50px;
+ z-index: 9999;
+}
+#overlay div {
+ margin: 5% auto;
+ background-color: #fff;
+ border:1px solid #000;
+ border-radius: 10px;
+ padding:20px;
+ font-size:18px;
+ text-align:center;
+}
+#zoomModal {
+ visibility: hidden;
+ position: absolute;
+ left: 0px;
+ top: 0px;
+ width:100%;
+ height:100%;
+ text-align:center;
+ padding:50px;
+ z-index: 9999;
+}
+#zoomModal div {
+ margin: 5% auto;
+ background-color: #fff;
+ border:1px solid #000;
+ border-radius: 10px;
+ padding:20px;
+ font-size:18px;
+ text-align:center;
+}
+#overlayer {
+ visibility: hidden;
+ position: absolute;
+ left: 0px;
+ top: 0px;
+ width:100%;
+ height:100%;
+ text-align:center;
+ z-index: 1000;
+}
+#wageTable{
+  background-color: white;
+  width: 100%;
+  font-size: 20px;
+  margin:0;
+  text-align: left;
+}
+#wageTBody td:hover{
+  background: #EEE;
+}
+#wageTBody td:hover .editPencil{
+  color:black;
+}
+#MaterialTBody td:hover{
+  background: #EEE;
+}
+#MaterialTBody td:hover .editPencil{
+  color:black;
+}
+#wageHold{
+  width: 870px;
+  margin: 5% auto;
+  background-color: #F0F8FF;
+  border:1px solid #000;
+  border-radius: 10px;
+  padding:20px;
+  font-size:18px;
+  text-align:right;
+}
+#newEmployee{
+  display: block;
+  margin:0;
+  height: 40px;
+  font-size: 20px;
+  font-weight: bold;
+  border-radius: 5px;
+}
+
+#ajax-example {
+  display: block;
+  width: 100%;
+}
+
+.ajax-block {
+  display: block;
+  padding: 1em;
+  margin: 1em;
+  color: #222;
+  background: #fff;
+  border-radius: 3px;
+}

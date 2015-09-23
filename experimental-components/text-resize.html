@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>textResize</title>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+
+</head>
+<style>
+body, html {
+  width:100%;
+  height:100%;
+}
+#container {
+    display:inline-block;
+    height:25%;
+    background-color:#EEE;
+}
+
+</style>
+<body>
+  <div id="container">
+    <span>This is my text</span>
+</div>
+</body>
+<script type="text/javascript">
+fontsize = function () {
+  var fontSize = $("#container").height() * 0.90;
+  $("#container span").css('font-size', fontSize);
+  console.log(fontSize);
+};
+$(window).resize(fontsize);
+$(document).ready(fontsize);
+</script>
+</html>
