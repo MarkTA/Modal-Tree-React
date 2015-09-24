@@ -8,7 +8,8 @@ var AddNode = React.createClass({
     var node = {
       id: this.props.nodes.length + 1,
       name: React.findDOMNode(this.refs.name).value,
-      parent_id: parseInt(React.findDOMNode(this.refs.parent_id).value)
+      parent_id: parseInt(React.findDOMNode(this.refs.parent_id).value),
+      tier: this.findTier()
     };
     Actions.addNode(node);
   },
@@ -19,6 +20,20 @@ var AddNode = React.createClass({
         <option value={node.id}>{node.name}</option>
       );
     });
+  },
+
+  findTier: function(){
+    var ParentID = React.findDOMNode(this.refs.parent_id).value;
+
+      return this.props.nodes.map(function (node) {
+        if(ParentID==node.id){
+          return node.tier+'1'
+        }else{return;}
+      });
+
+
+
+
   },
 
   render: function() {

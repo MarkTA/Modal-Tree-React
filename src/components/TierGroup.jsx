@@ -29,7 +29,7 @@ var TierGroup = React.createClass({
     return (
     <div>
       <div
-        className={"block tier-"+this.props.node.parent_id+1}
+        className={"block tier-"+this.props.node.tier}
         id={"block"+this.props.node.id}
         onMouseOver={this.handleHover}
         onMouseOut={this.handleHoverOut}>

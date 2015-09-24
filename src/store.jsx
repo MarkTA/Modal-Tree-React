@@ -10,22 +10,22 @@ var parts = [
     tier: 1
   },
   {
-    id: 3,
+    id: 2,
     name: 'A-A',
     parent_id: 1,
-    tier: 2
+    tier: 11
+  },
+  {
+    id: 3,
+    name: 'A-B',
+    parent_id: 1,
+    tier: 11
   },
   {
     id: 4,
-    name: 'A-B',
-    parent_id: 1,
-    tier: 2
-  },
-  {
-    id: 5,
     name: 'A-C',
     parent_id: 1,
-    tier: 2
+    tier: 11
   }
 ];
 
