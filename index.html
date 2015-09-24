@@ -3,13 +3,13 @@
 
   <link rel="stylesheet" href="./public/app.css">
 </head>
-<body onclick="lines()">
+<body>
   <canvas id="canvas">
   </canvas>
 <div id="full" class="container">
 </div>
 <script src="main.js"></script>
-<script>
+<!-- <script>
 function lines(){
   console.log('called');
 	var blocks=document.getElementsByClassName('block');
@@ -17,8 +17,10 @@ function lines(){
   var w = window.innerWidth;
   var f = document.getElementById("full");
   var h =  f.height+50;
-	canvas.width = w;
-	canvas.height = h;
+	canvas.width = 120;
+	canvas.height = 60;
+	canvas.width = 1200;
+	canvas.height = 600;
   console.log(blocks.length);
 	for (i=1;i<blocks.length;i++){
 		var blockDiv = blocks[i];
@@ -26,7 +28,7 @@ function lines(){
     console.log(offset);
 		var xa = offset.left+((offset.right-offset.left)/2)+window.pageXOffset;
 		var ya = offset.top+((offset.bottom-offset.top)/2)+window.pageYOffset;
-		var blockFrom = blockDiv.parentNode.parentNode.parentNode.previousSibling;
+		var blockFrom = blockDiv.parentNode.parentNode.previousSibling;
 		var offsets = blockFrom.getBoundingClientRect();
     console.log(offsets);
 		var xb = offsets.left+((offsets.right-offsets.left)/2)+window.pageXOffset;
@@ -37,9 +39,8 @@ function lines(){
     console.log(xa+', '+ya);
 		ctx.lineTo(xb,yb);
     console.log(xb+', '+yb);
-    ctx.strokeStyle = 'red';
 		ctx.stroke();
     console.log('please draw!');
   }
-}</script>
+}</script> -->
 </body>
