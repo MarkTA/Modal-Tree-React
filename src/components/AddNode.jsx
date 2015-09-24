@@ -1,6 +1,7 @@
 var React = require('react');
 var PropTypes = React.PropTypes;
 var Actions = require('../actions');
+var _ = require('lodash');
 
 var AddNode = React.createClass({
 
@@ -24,16 +25,17 @@ var AddNode = React.createClass({
 
   findTier: function(){
     var ParentID = React.findDOMNode(this.refs.parent_id).value;
-
-      return this.props.nodes.map(function (node) {
-        if(ParentID==node.id){
-          return node.tier+'1'
-        }else{return;}
-      });
-
-
-
-
+    var tierArray= this.props.nodes.map(function (node) {
+      if(ParentID==node.id){
+        return node.tier+'1'
+      }else{return null}
+    });
+    var Tier = tierArray.filter(function(tier) { return tier != null });
+    if(Tier[0].length>5){
+      return "111111"
+    }else{
+      return Tier
+    }
   },
 
   render: function() {
