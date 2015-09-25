@@ -2,6 +2,7 @@ var React = require('react');
 var TierGroup = require('./TierGroup');
 var AddNode = require('./AddNode');
 var NodeStore = require('../store');
+var Header = require('./header')
 var _ = require('lodash');
 
 module.exports = React.createClass({
@@ -36,19 +37,17 @@ module.exports = React.createClass({
   },
   render: function() {
     return (
+    <div>
+      <Header/>
+      <AddNode nodes={this.state.nodes} />
+      <br/>
       <div className="wrapflt wrapfltMain">
         <div className="nodes">
           {this.getTopLevelNodes()}
         </div>
-        <AddNode nodes={this.state.nodes} />
       </div>
+    </div>
 
     );
   }
 });
-        // <Tier1
-        //   title={this.props.title}
-        //   number={this.props.number}
-        //   tier={this.props.tier}
-        //   collapse={this.props.collapse}
-        //   childData={this.props.childData}/>
