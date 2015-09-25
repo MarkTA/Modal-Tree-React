@@ -21,7 +21,7 @@ canvas{
   top:0;
   left:0;
   z-index:-1;
-  width:1200px;
+  width:100%;
   height:600px;
 }
 div{
@@ -76,10 +76,23 @@ th{
   margin:0;
   padding:10px;
 }
+.badge-btn-hold{
+  text-align: center;
+  margin-bottom: -50px;
+}
 .badge-collapse{
   border-radius: 3px;
   position:relative;
   top:10px;
+  box-shadow: 0px 2px 8px #92A19B inset, 0px 0px 16px #EEE;
+  padding:5px 8px 9px 8px;
+}
+.badge-top{
+  border-radius: 3px;
+  position:relative;
+  top:-50px;
+  font-size: 18px;
+  margin:5 5 -20 5;
   box-shadow: 0px 2px 8px #92A19B inset, 0px 0px 16px #EEE;
   padding:5px 8px 9px 8px;
 }
@@ -108,6 +121,9 @@ font-size: 20px;
 .big .time{
   font-size: 20px;
 }
+.blockDisplay{
+  display: block;
+}
 .block{
   background-color: #FFFAE6;
   border-radius: 5px;
@@ -120,9 +136,6 @@ font-size: 20px;
 .block:hover{
   box-shadow: 0px 2px 8px #92A19B inset, 0px 0px 16px #EEE;
 }
-.block:hover .wrap .block{
-  box-shadow: 0px 2px 8px #92A19B inset, 0px 0px 16px #EEE;
-}
 .block .removeIcon{
   visibility: hidden;
 }
@@ -131,9 +144,61 @@ font-size: 20px;
 }
 .blockMain{
 }
+.button-container{
+  width: 100%;
+  text-align: center;
+  margin: 0 0 0 20px;
+  padding: 0 100px;
+}
+.button-container  ul {
+  display:inline-block;
+  list-style-type: none;
+  width:100%;
+  margin:20px;
+  padding: 0;
+  overflow: hidden;
+  border-radius:5px;
+  border:solid 1px #AFBCC1;
+}
+.button-container ul li {
+  border:solid 0 1px #AFBCC1;
+  display: inline-block;
+  font-weight: bold;
+  font-size: 20px;
+  width: 20%;
+  color: #747D80;
+  background-color: #F3F6F7;
+  text-align: center;
+  padding: 0px;
+  text-decoration: none;
+  text-transform: uppercase;
+}
+.button-container ul li a{
+  display:block;
+  color: #747D80;
+  text-decoration: none;
+  padding:4px;
+}
+
+.button-container ul li:hover{
+  background-color: #AFBCC1;
+  color: #FFFFFF;
+  cursor: pointer;
+
+}
+
+.button-container ul li:hover a{
+  color: #FFFFFF;
+  cursor: pointer;
+
+}
+
 .center{
   display:block;
   margin: 0 auto;
+}
+.container{
+  display: block;
 }
 .editPencil{
   font-size: 10px;
@@ -150,6 +215,10 @@ font-size: 20px;
 }
 .example{
   color:gray;
+}
+.full-width{
+  width:1200px;
+  max-height:75px;
 }
 .hideThis{
   visibility: hidden;
@@ -209,52 +278,52 @@ font-size: 20px;
   overflow-y: scroll;
 }
 .tier-1{
+  padding:24px;
+  max-height: 96px;
+}
+.tier-1 h2{
+  font-size: 48px;
+  margin-top: -4.8px;
+}
+.tier-11{
   padding:21px;
   max-height: 84px;
 }
-.tier-1 h2{
+.tier-11 h2{
   font-size: 42px;
   margin-top: -4.2px;
 }
-.tier-11{
+.tier-111{
   padding:18px;
   max-height: 72px;
 }
-.tier-11 h2{
+.tier-111 h2{
   font-size: 36px;
   margin-top: -3.6px;
 }
-.tier-111{
+.tier-1111{
   padding:15px;
   max-height: 60px;
 }
-.tier-111 h2{
+.tier-1111 h2{
   font-size: 30px;
   margin-top: -3px;
 }
-.tier-1111{
+.tier-11111{
   padding:12px;
   max-height: 48px;
 }
-.tier-1111 h2{
+.tier-11111 h2{
   font-size:24px;
   margin-top: -2.4px;
 }
-.tier-11111{
+.tier-111111{
   padding:9px;
   max-height: 36px;
 }
-.tier-11111 h2{
+.tier-111111 h2{
   font-size:18px;
   margin-top: -1.8px;
-}
-.tier-111111{
-  padding:6px;
-  max-height: 24px;
-}
-.tier-111111 h2{
-  font-size:12px;
-  margin-top: -1.2px;
 }
 .time-employee{
   font-weight: bold;
