@@ -7,7 +7,7 @@ var TierGroup = React.createClass({
     return {
       collapse: "minus",
       hide: "",
-      hideBtn: "hideThis"
+      hideBtn: "hide"
     };
   },
   getChildNodes: function () {
@@ -21,18 +21,29 @@ var TierGroup = React.createClass({
             nodes={nodes} />
         );
       });
-      lines();
   },
 
   render: function() {
 
     return (
     <div>
+      <br/>
       <div
         className={"block tier-"+this.props.node.tier}
         id={"block"+this.props.node.id}
         onMouseOver={this.handleHover}
         onMouseOut={this.handleHoverOut}>
+        <div className="badge-btn-hold hide">
+          <span className="badge badge-top ">
+            <span className="glyphicon glyphicon-leaf"></span>
+          </span>
+          <span className="badge badge-top ">
+            <span className="glyphicon glyphicon-eye-open"></span>
+          </span>
+          <span className="badge badge-top ">
+            <span className="glyphicon glyphicon-zoom-in"></span>
+          </span>
+        </div>
         <h2>
           <span
             className="spanNumber badge">
@@ -57,12 +68,14 @@ var TierGroup = React.createClass({
     if(this.state.collapse=="plus"){
       this.setState({
         collapse:"minus",
-        hide:""
+        hide:"",
+        hideBtn: "hide"
       });
     }else{
       this.setState({
         collapse:"plus",
-        hide: "hideThis"
+        hide: "hide",
+        hideBtn: ""
       });
     }
   },
@@ -72,44 +85,17 @@ var TierGroup = React.createClass({
     });
   },
   handleHoverOut: function(){
-    this.setState({
-      hideBtn: "hideThis"
-    });
+    if(this.state.collapse=="plus"){
+      this.setState({
+        hideBtn: ""
+      });
+    }else{
+      this.setState({
+        hideBtn: "hide"
+      });
+    }
   },
 
-  lines: function(){
-    console.log('called');
-  	var blocks=document.getElementsByClassName('block');
-  	var canvas = document.getElementById("canvas");
-    var w = window.innerWidth;
-    var f = document.getElementById("full");
-    var h =  f.height+50;
-  	canvas.width = 120;
-  	canvas.height = 60;
-  	canvas.width = 1200;
-  	canvas.height = 600;
-    console.log(blocks.length);
-  	for (i=1;i<blocks.length;i++){
-  		var blockDiv = blocks[i];
-  		var offset = blockDiv.getBoundingClientRect();
-      console.log(offset);
-  		var xa = offset.left+((offset.right-offset.left)/2)+window.pageXOffset;
-  		var ya = offset.top+((offset.bottom-offset.top)/2)+window.pageYOffset;
-  		var blockFrom = blockDiv.parentNode.parentNode.previousSibling;
-  		var offsets = blockFrom.getBoundingClientRect();
-      console.log(offsets);
-  		var xb = offsets.left+((offsets.right-offsets.left)/2)+window.pageXOffset;
-  		var yb = offsets.top+((offsets.bottom-offsets.top)/2)+window.pageYOffset;
-  		var ctx = canvas.getContext("2d");
-  		ctx.lineWidth = 2;
-  		ctx.moveTo(xa,ya);
-      console.log(xa+', '+ya);
-  		ctx.lineTo(xb,yb);
-      console.log(xb+', '+yb);
-  		ctx.stroke();
-      console.log('please draw!');
-    }
-  }
   });
 
 module.exports = TierGroup;
