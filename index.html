@@ -3,39 +3,45 @@
 
   <link rel="stylesheet" href="./public/app.css">
 </head>
-<body onclick="lines()">
+<body onload="lines()">
   <canvas id="canvas">
   </canvas>
-<div id="full" class="not-bootstrap-container">
+<div id="full" class="main-container">
 </div>
 <script src="main.js"></script>
 <script>
+
 function lines(){
-	var blocks=document.getElementsByClassName('block');
-	var canvas = document.getElementById("canvas");
-  var w = window.innerWidth;
-  var f = document.getElementById("full");
-  var h =  f.height+50;
-	canvas.width = 120;
-	canvas.height = 60;
-	canvas.width = 1200;
-	canvas.height = 600;
-	for (i=1;i<blocks.length;i++){
-		var blockDiv = blocks[i];
-		var offset = blockDiv.getBoundingClientRect();
-		var xa = offset.left+((offset.right-offset.left)/2)+window.pageXOffset-40;
-		var ya = offset.top+((offset.bottom-offset.top)/2)+window.pageYOffset;
-		var blockFrom = blockDiv.parentNode.parentNode.previousSibling;
-		var offsets = blockFrom.getBoundingClientRect();
-		var xb = offsets.left+((offsets.right-offsets.left)/2)+window.pageXOffset-40;
-		var yb = offsets.top+((offsets.bottom-offsets.top)/2)+window.pageYOffset;
-		var ctx = canvas.getContext("2d");
-		ctx.lineWidth = 2;
-    if(xa>0 && xb>0){
-  		ctx.moveTo(xa,ya);
-  		ctx.lineTo(xb,yb);
-  		ctx.stroke();
+  setInterval(function(){
+  	var blocks=document.getElementsByClassName('block');
+  	var canvas = document.getElementById("canvas");
+    var w = window.innerWidth;
+    var f = document.getElementById("full");
+    var h =  f.height+50;
+  	canvas.width = 120;
+  	canvas.height = 60;
+  	canvas.width = 1200;
+  	canvas.height = 600;
+  	for (i=1;i<blocks.length;i++){
+  		var blockDiv = blocks[i];
+  		var offset = blockDiv.getBoundingClientRect();
+  		var xa = offset.left+((offset.right-offset.left)/2)+window.pageXOffset-40;
+  		var ya = offset.top+((offset.bottom-offset.top)/2)+window.pageYOffset;
+  		var blockFrom = blockDiv.parentNode.parentNode.previousSibling;
+  		var offsets = blockFrom.getBoundingClientRect();
+  		var xb = offsets.left+((offsets.right-offsets.left)/2)+window.pageXOffset-40;
+  		var yb = offsets.top+((offsets.bottom-offsets.top)/2)+window.pageYOffset;
+  		var ctx = canvas.getContext("2d");
+  		ctx.lineWidth = 2;
+      if(xa>0 && xb>0){
+    		ctx.moveTo(xa,ya);
+    		ctx.lineTo(xb,yb);
+    		ctx.stroke();
+      }
     }
-  }
-}</script>
+  }, 20);
+}
+
+
+</script>
 </body>
