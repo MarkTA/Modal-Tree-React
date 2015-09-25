@@ -3,15 +3,14 @@
 
   <link rel="stylesheet" href="./public/app.css">
 </head>
-<body>
+<body onclick="lines()">
   <canvas id="canvas">
   </canvas>
-<div id="full" class="container">
+<div id="full" class="not-bootstrap-container">
 </div>
 <script src="main.js"></script>
-<!-- <script>
+<script>
 function lines(){
-  console.log('called');
 	var blocks=document.getElementsByClassName('block');
 	var canvas = document.getElementById("canvas");
   var w = window.innerWidth;
@@ -21,26 +20,22 @@ function lines(){
 	canvas.height = 60;
 	canvas.width = 1200;
 	canvas.height = 600;
-  console.log(blocks.length);
 	for (i=1;i<blocks.length;i++){
 		var blockDiv = blocks[i];
 		var offset = blockDiv.getBoundingClientRect();
-    console.log(offset);
-		var xa = offset.left+((offset.right-offset.left)/2)+window.pageXOffset;
+		var xa = offset.left+((offset.right-offset.left)/2)+window.pageXOffset-40;
 		var ya = offset.top+((offset.bottom-offset.top)/2)+window.pageYOffset;
 		var blockFrom = blockDiv.parentNode.parentNode.previousSibling;
 		var offsets = blockFrom.getBoundingClientRect();
-    console.log(offsets);
-		var xb = offsets.left+((offsets.right-offsets.left)/2)+window.pageXOffset;
+		var xb = offsets.left+((offsets.right-offsets.left)/2)+window.pageXOffset-40;
 		var yb = offsets.top+((offsets.bottom-offsets.top)/2)+window.pageYOffset;
 		var ctx = canvas.getContext("2d");
 		ctx.lineWidth = 2;
-		ctx.moveTo(xa,ya);
-    console.log(xa+', '+ya);
-		ctx.lineTo(xb,yb);
-    console.log(xb+', '+yb);
-		ctx.stroke();
-    console.log('please draw!');
+    if(xa>0 && xb>0){
+  		ctx.moveTo(xa,ya);
+  		ctx.lineTo(xb,yb);
+  		ctx.stroke();
+    }
   }
-}</script> -->
+}</script>
 </body>
