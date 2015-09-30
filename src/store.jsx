@@ -4,28 +4,44 @@ var EventEmitter = require('events').EventEmitter;
 
 var parts = [
   {
-    id: 1,
+    key: 1,
     name: 'A',
-    parent_id: '',
-    tier: 1
+    parent_key: 0,
+    tier: 1,
+    tally: 1,
+    time: [],
+    list: [],
+    materials: []
   },
   {
-    id: 2,
-    name: 'A-A',
-    parent_id: 1,
-    tier: 11
+    key: 2,
+    name: 'AA',
+    parent_key: 1,
+    tier: 11,
+    tally: 1,
+    time: [],
+    list: [],
+    materials: []
   },
   {
-    id: 3,
-    name: 'A-B',
-    parent_id: 1,
-    tier: 11
+    key: 3,
+    name: 'AB',
+    parent_key: 1,
+    tier: 11,
+    tally: 1,
+    time: [],
+    list: [],
+    materials: []
   },
   {
-    id: 4,
-    name: 'A-C',
-    parent_id: 1,
-    tier: 11
+    key: 4,
+    name: 'AC',
+    parent_key: 1,
+    tier: 11,
+    tally: 1,
+    time: [],
+    list: [],
+    materials: []
   }
 ];
 
@@ -61,6 +77,9 @@ var NodeStore = _.assign({}, EventEmitter.prototype, {
         parts.push(payload.node);
         console.log('added node', payload.node);
         NodeStore.emitChange();
+        break;
+      case 'DEMO_CALL':
+        console.log(payload.data);
         break;
     }
 

@@ -1,0 +1,48 @@
+<head>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+
+  <link rel="stylesheet" href="./style.css">
+</head>
+<body onload="lines()">
+  <canvas id="canvas">
+  </canvas>
+<div id="full" class="main-container">
+</div>
+<script src="main.js"></script>
+<script>
+
+function lines(){
+  setInterval(function(){
+  	var blocks=document.getElementsByClassName('block');
+  	var canvas = document.getElementById("canvas");
+  	var full = document.getElementById("full");
+    var fullOffset = full.getBoundingClientRect();
+    var width = fullOffset.width;
+    var height = fullOffset.height;
+  	canvas.width = 120;
+  	canvas.height = 60;
+  	canvas.width = width;
+  	canvas.height = 600;
+  	for (i=1;i<blocks.length;i++){
+  		var blockDiv = blocks[i];
+  		var offset = blockDiv.getBoundingClientRect();
+  		var xa = offset.left+((offset.right-offset.left)/2)+window.pageXOffset;
+  		var ya = offset.top+((offset.bottom-offset.top)/2)+window.pageYOffset;
+  		var blockFrom = blockDiv.parentNode.parentNode.previousSibling;
+  		var offsets = blockFrom.getBoundingClientRect();
+  		var xb = offsets.left+((offsets.right-offsets.left)/2)+window.pageXOffset;
+  		var yb = offsets.top+((offsets.bottom-offsets.top)/2)+window.pageYOffset;
+  		var ctx = canvas.getContext("2d");
+  		ctx.lineWidth = 1;
+      if(xa>0 && xb>0){
+    		ctx.moveTo(xa,ya);
+    		ctx.lineTo(xb,yb);
+    		ctx.stroke();
+      }
+    }
+  }, 20);
+}
+
+
+</script>
+</body>

@@ -29,11 +29,13 @@ var notify = function(error) {
     message += '\nOn Line: ' + error.lineNumber;
   }
 
+  console.error(error.message, error.filename, error.lineNumber);
+
   notifier.notify({title: title, message: message});
 };
 
 var bundler = watchify(browserify({
-  entries: ['./src/app.jsx'],
+  entries: ['./client/app.jsx'],
   transform: [reactify],
   extensions: ['.jsx'],
   debug: true,
@@ -47,7 +49,7 @@ function bundle() {
     .bundle()
     .on('error', notify)
     .pipe(source('main.js'))
-    .pipe(gulp.dest('./'))
+    .pipe(gulp.dest('./public'))
 }
 bundler.on('update', bundle)
 
@@ -59,6 +61,7 @@ gulp.task('serve', function(done) {
   gulp.src('')
     .pipe(server({
       livereload: {
+        port: 8081,
         enable: true,
         filter: function(filePath, cb) {
           if(/main.js/.test(filePath)) {
@@ -73,14 +76,14 @@ gulp.task('serve', function(done) {
 });
 
 gulp.task('sass', function () {
-  gulp.src('./sass/**/*.scss')
+  gulp.src('./assets/sass/*.scss')
     .pipe(sass().on('error', sass.logError))
-    .pipe(concat('style.css'))
-    .pipe(gulp.dest('./'));
+    // .pipe(concat('style.css'))
+    .pipe(gulp.dest('./public'));
 });
 
 gulp.task('default', ['build', 'serve', 'sass', 'watch']);
 
 gulp.task('watch', function () {
-  gulp.watch('./sass/**/*.scss', ['sass']);
+  gulp.watch('./assets/**/*.scss', ['sass']);
 });

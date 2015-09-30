@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>ModalTree</title>
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap-theme.min.css">
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+
+  <link rel="stylesheet" href="../public/app.css">
+  <script src="../public/app.js"></script>
+
+	<script type="text/javascript">
+    function stopRKey(evt) {
+      var evt = (evt) ? evt : ((event) ? event : null);
+      var node = (evt.target) ? evt.target : ((evt.srcElement) ? evt.srcElement : null);
+      if ((evt.keyCode == 13) && (node.type=="text"))  {return false;}
+    }
+    document.onkeypress = stopRKey;
+  </script>
+</head>
+
+<body>
+
+  </br>
+    <button class="btn btn-default" onclick="overlay()">NEW BRANCH</button>
+    <button class="btn btn-default" onclick="MaterialToggle()">MATERIALS</button>
+    <button class="btn btn-default" onclick="wagesToggle()">EMPLOYEES</button>
+    <button class="btn btn-default" onclick="colorSelect()">CUSTOMIZE</button>
+    <button class="btn btn-default" onclick="zoom()">ZOOM</button>
+    </br>
+
+  <div id="full">
+  	<div class="wrapflt wrapfltMain">
+        <canvas id="canvas" width="1200px" height="600px">
+        </canvas>
+  	<div class="block blockMain tier-i" id="blockHouse-Painting">
+      <h2>
+        <span class="spanNumber badge" style="font-size:20px; margin-bottom:10px;"></span>
+        <span class="spanTitle">House Painting</span>
+      </h2>
+      <h3 class="time">
+        <span class="time-employee"></span>
+        <span class="time-number"></span>
+        <span class="time-option"></span>
+        <span class="time-each"></span>
+      </h3>
+      <ul class="list"></ul>
+    </div><div id="wrapHouse-Painting" data-tier="tier-i"class="wrap">
+  		</div>
+  	</div>
+  </div>
+
+
+  <div id="overlay" class="transparent">
+    <div>
+        <span id="BranchClose" onclick="overlay()" class="glyphicon glyphicon-remove"></span>
+          <h2>NEW BRANCH</h2>
+      <form name="newBranches">
+    </br>
+        Title:<input type="text" name="title" autocomplete="off"/>
+      </br>
+      </br>
+        Branch from:<select name="branchFrom">
+          <option value="House-Painting">House Painting</option>
+        </select>
+      </form>
+    </br>
+      <button onclick='branches()'>
+        <span class="glyphicon glyphicon-ok"> </span> OK
+      </button>
+      <button onclick='overlay()'>
+        <span class="glyphicon glyphicon-remove"> </span> CANCEL
+      </button>
+   	</div>
+  </div>
+
+
+    <div id="modalWages" class="transparent">
+      <div id="wageHold">
+        <button id="newEmployee" onclick="addEmployee()">
+          New Employee
+        </button>
+          <span id="ModalClose" onclick="wagesToggle()" class="glyphicon glyphicon-remove"></span>
+      </br>
+        <div class="tableWrap">
+          <table id="wageTable">
+            <tbody id="wageTBody">
+              <tr>
+                <th><div class="THdisplay">EMPLOYEE</div></th>
+                <th><div class="THdisplay">PER HOUR</div></th>
+                <th><div class="THdisplay">PER DAY</div></th>
+              </tr>
+              <tr>
+                <td><span class="example">Eric</span></td>
+                <td><span class="example">$19.00</span></td>
+                <td><span class="example">$150.00</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalMaterial" class="transparent">
+      <div id="MaterialHold">
+        <button id="newMaterial" onclick="addMaterial()">
+          New Material
+        </button>
+          <span id="ModalClose" onclick="MaterialToggle()" class="glyphicon glyphicon-remove"></span>
+      </br>
+        <div class="tableWrap">
+          <table id="MaterialTable">
+            <tbody id="MaterialTBody">
+              <tr>
+                <th><div class="THdisplay">Material Name</div></th>
+                <th><div class="THdisplay">Unit Name</div></th>
+                <th><div class="THdisplay">Cost per Unit</div></th>
+              </tr>
+              <tr>
+                <td><span class="example">Coverstain primer</span></td>
+                <td><span class="example">1gallon</span></td>
+                <td><span class="example">$20.00</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+
+    <div id="modalColor" class="transparent">
+      <span id="ModalClose" onclick="wagesToggle()" class="glyphicon glyphicon-remove"></span>
+      <div id="colorSelect">
+        Background color:
+        <input id="backColor" type="color" name="backColor" value=#627D9A>
+      </br>
+        Block color:
+        <input id="blockColor" type="color" name="blockColor" value=#FFFAE6>
+      </br>
+        Text color:
+        <input id="textColor" type="color" name="textColor" value=#4D4D4D>
+      </br>
+      </br>
+        <button class="center" onclick="setColor()">SET COLORS</button>
+      </div>
+    </div>
+
+  <div id="overlayer">
+    <table id="modalEdit">
+      <span id="ModalEditClose" class="glyphicon glyphicon-remove gotIt"></span>
+      <tr>
+        <td class="toggleButton">
+          <div class="toggle">
+            <span class="glyphicon glyphicon-pencil"> </span> Title
+          </div>
+        </td>
+        <td class="hideThis">
+          <input id="editTitle" type="text" value="WINDOWS">
+          <button class="okay" onclick="editTitle()">
+            <span class="glyphicon glyphicon-ok"> </span>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td class="toggleButton">
+          <div class="toggle">
+            <span class="glyphicon glyphicon-align-justify"> </span> Tally
+          </div>
+        </td>
+        <td class="hideThis">
+          <input id="Tally" type="number" value="1">
+          <button onclick="addTally()">
+            <span class="glyphicon glyphicon-plus"></span>
+          </button>
+          <button onclick="minusTally()">
+            <span class="glyphicon glyphicon-minus"></span>
+          </button>
+          <button class="okay">
+            <span class="glyphicon glyphicon-ok"> </span>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td class="toggleButton">
+          <div class="toggle">
+            <span class="glyphicon glyphicon-time"> </span> Time
+          </div>
+        </td>
+        <td class="hideThis">
+        <select id="employeeOption">
+          <option value="">employee</option>
+          <option value="Mark">Mark</option>
+          <option value="Eric">Eric</option>
+          <option value="Joel">Joel</option>
+        </select>
+          <input id="timeNumber"type="number" value="">
+          <select id="timeOption">
+            <option value="mins">mins</option>
+            <option value="hrs">hrs</option>
+            <option value="days">days</option>
+          </select>
+          <span>for</span>
+          <select id="timeEach">
+            <option value="each">each</option>
+            <option value="all">all</option>
+          </select>
+          <button class="okay" onclick="editTime()">
+            <span class="glyphicon glyphicon-plus"> </span>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td class="toggleButton">
+          <div class="toggle">
+            <span class="glyphicon glyphicon-list"> </span> List
+          </div>
+        </td>
+        <td  class="hideThis">
+          <input id="lists" type="text">
+          <select id="materials" style="display:none;">
+            <option value="">Materials</option>
+            <option value="CoverStain">Coverstain</option>
+            <option value="PPG">PPG</option>
+            <option value="Caulk">Caulk</option>
+            <option value="Tape">Tape</option>
+          </select>
+          <button onclick="addList()">next</button>
+          <button id="materialButton" onclick="selectMaterial()">
+            add material
+          </button>
+          <div id="listEditor" class=""><ul id="ULedit"></ul></div>
+        </td>
+      </tr>
+      <tr>
+        <td class="toggleButton">
+          <div class="toggle">
+            <span class="glyphicon glyphicon-leaf"> </span> Branch
+          </div>
+        </td>
+        <td class="hideThis">
+          <input class="inputMedium" id="newBranch" type="text" name="title" autocomplete="off"/>
+          from<select id="branchFrom" name="branchFrom">
+            <option value="House-Painting">House Painting</option>
+          </select>
+          <button class="okay gotIt" onclick="brancher()">
+            <span class="glyphicon glyphicon-ok"> </span>
+          </button>
+        </td>
+      </tr>
+      <tr>
+        <td class="toggleButton gotIt">
+          <div class="toggle">
+            <span class="glyphicon glyphicon-ok"> </span> OK
+          </div>
+        </td>
+      </tr>
+      <tr>
+        <td class="toggleButton" onclick="trash()">
+          <div class="toggle">
+            <span class="glyphicon glyphicon-trash"> </span> TRASH
+          </div>
+        </td>
+      </tr>
+    </table>
+  </div>
+<!--
+  <div id="ajax-example"></div>
+
+
+  <input type="text" id="blocks-filter" placeholder="type to filter blocks" />
+-->
+
+</body>
+</html>

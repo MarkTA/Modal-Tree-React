@@ -1,4 +1,6 @@
 var React = require('react');
-var Main = require('./components/main');
+var Routes = require('./routes');
 
-React.render(<Main />,  document.querySelector('.main-container'));
+
+
+React.render(Routes,  document.querySelector('.main-container'));
