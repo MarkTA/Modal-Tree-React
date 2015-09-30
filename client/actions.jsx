@@ -17,6 +17,7 @@ module.exports = {
       .then(function (res) {
       AppDispatcher.dispatch({
         action: 'POST_NODE',
+        data: res,
         node: node
       });
     })
